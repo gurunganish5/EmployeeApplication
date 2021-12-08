@@ -22,6 +22,11 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 	
+	@GetMapping(value="/hello")
+	public String hello() {
+		return "hello there from employee application";
+	}
+	
 	@GetMapping(value = "/home")
 	public String welcome() {
 		return "Welcome to my Employee Application";
