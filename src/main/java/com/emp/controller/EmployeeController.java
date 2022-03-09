@@ -27,11 +27,6 @@ public class EmployeeController {
 		return "hello there from employee application";
 	}
 	
-	@GetMapping(value = "/home")
-	public String welcome() {
-		return "Welcome to my Employee Application";
-	}
-	
 	@GetMapping(value = "/findAll")
 	public List<EmployeeEntity> findAllEmployee(HttpServletRequest req){
 	return service.findAllEmployee();	
@@ -42,12 +37,12 @@ public class EmployeeController {
 		return service.findEmployeeById(eid);
 		}
 	
-	@PutMapping(value = "/createEmployee")
+	@PostMapping(value = "/createEmployee")
 	public EmployeeEntity createEmployee(@RequestBody EmployeeEntity emp, HttpServletRequest req) {
 		return service.createEmployee(emp);
 	}
 	
-	@PostMapping(value = "/updateEmployee/{eid}")
+	@PutMapping(value = "/updateEmployee/{eid}")
 	public EmployeeEntity updateEmployee(@PathVariable("eid")int eid, @RequestBody EmployeeEntity emp, HttpServletRequest req) {
 		return service.updatEmployee(eid, emp);
 	}
